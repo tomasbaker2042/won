@@ -1,0 +1,19 @@
+﻿function fakeLoaderFadeIn() {
+    $("#fakeLoader").fakeLoader({
+        timeToHide: 120000,
+        bgColor: "#28282e",
+        spinner: "spinner1",
+        zIndex: 1051
+    });
+}
+function fakeLoaderFadeOut() {
+    $('#fakeLoader').fadeOut();
+    $("#fakeLoader").replaceWith('<div id="fakeLoader"></div>');
+}
+
+$(document).ajaxStart(function () {
+    fakeLoaderFadeIn();
+});
+$(document).ajaxStop(function () {
+    fakeLoaderFadeOut();
+});
